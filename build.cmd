@@ -37,6 +37,9 @@ del temp.txt
 
 @echo off
 copy ..\bin\WinData\rlonmod.pkm ..\rlonmod\dist\rlonmod.pkm /y
+if exist {"C:\Program Files (x86)\Steam\SteamApps\common\Banished\WinData"} do (
+	copy "..\bin\WinData\rlonmod.pkm" "C:\Program Files (x86)\Steam\SteamApps\common\Banished\WinData\rlonmod.pkm" /y
+)
 echo.
 echo Completed Build: !inc!.
 echo.
