@@ -7,6 +7,7 @@ for /f "usebackq tokens=* delims=" %%a in ("package.rsc") do (
 	for /f "usebackq tokens=1-4 delims= " %%b in ('%%a') do (
 		if "%%c"=="_userVersion" (
 			for /f "usebackq tokens=1-3 delims=.;" %%f in ('%%e') do (
+				set /a rev=%%g
 				set /a inc=%%h+1
 				echo.%%b %%c %%d %%f.%%g.!inc!;>>temp.txt
 			)
@@ -21,7 +22,7 @@ for /f "usebackq tokens=* delims=" %%a in ("temp.txt") do (
 	for /f "usebackq tokens=1-4 delims= " %%b in ('%%a') do (
 		if "%%c"=="_description" (
 			for /f "usebackq tokens=1 delims=:" %%d in ('%%a') do (
-				echo.%%d^: !inc!^";>>package.rsc
+				echo.%%d^: !rev! Build: !inc!^";>>package.rsc
 			)
 		) else (
 			echo:%%a>>package.rsc

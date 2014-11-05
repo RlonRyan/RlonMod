@@ -5,11 +5,20 @@ ExternalList resource
 	External _resources
 	[
 		// toolbar - references building and everything else - nothing else need be listed here
-		"Toolbar/Toolbars.rsc:advancedcropfield"
-		"Toolbar/Toolbars.rsc:advancedorchard"
-		"Toolbar/Toolbars.rsc:advancedmine"
-		"Toolbar/Toolbars.rsc:advancedquarry"
-		"Toolbar/Toolbars.rsc:storagewagon"
+		"Toolbars/Toolbar.rsc:advancedcropfield"
+		"Toolbars/Toolbar.rsc:advancedorchard"
+		"Toolbars/Toolbar.rsc:advancedmine"
+		"Toolbars/Toolbar.rsc:advancedquarry"
+		"Toolbars/Toolbar.rsc:storagewagon"
+		
+		"Toolbars/AdvancedStorageToolbar.rsc:advancedstorage"
+		"Toolbars/AdvancedStorageToolbar.rsc:wood"
+		"Toolbars/AdvancedStorageToolbar.rsc:iron"
+		"Toolbars/AdvancedStorageToolbar.rsc:stone"
+		"Toolbars/AdvancedStorageToolbar.rsc:fuel"
+		// To be readded
+		//"Toolbars/AdvancedStorageToolbar.rsc:firewood"
+		//"Toolbars/AdvancedStorageToolbar.rsc:coal"
 		
 		// To be readded when the modkit allows for custom roadspeeds.
 		//"Toolbar/Toolbars.rsc:packeddirtroad"
