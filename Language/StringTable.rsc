@@ -9,6 +9,10 @@ StringTable resource
 		{ String _name = "AdvancedMine";			String _text = "Advanced Mine"; }
 		{ String _name = "AdvancedMineLwr";			String _text = "advanced mine"; }
 		{ String _name = "AdvancedMineTip";			String _text = "An advanced mine is used to generate mined resources without a limit."; }
+		
+		{ String _name = "StorageWagon";			String _text = "Storage Wagon"; }
+		{ String _name = "StorageWagonLwr";			String _text = "storage wagon"; }
+		{ String _name = "StorageWagonTip";			String _text = "A storage wagon with shoddy worksmanship, not as good as one of those imported German carts."; }
 
 		{ String _name = "PackedDirtRoad";			String _text = "Packed Dirt Road"; }
 		{ String _name = "PackedDirtRoadLwr";			String _text = "packed dirt road"; }

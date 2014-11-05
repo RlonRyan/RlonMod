@@ -20,6 +20,17 @@ Toolbar advancedquarry
 	bool _autoHotKey = true;
 }
 
+Toolbar storagewagon
+{	
+	Toolbar _parent = "Game\Toolbar.rsc:storage";	
+	int _sortPriority = 50;	
+
+	Action _action = Tool;		
+	ComponentDescription _tool = "../Template/StorageWagon.rsc";			
+
+	bool _autoHotKey = true;
+}
+
 Toolbar packeddirtroad
 {	
 	Toolbar _parent = "Game\Toolbar.rsc:transport";	
