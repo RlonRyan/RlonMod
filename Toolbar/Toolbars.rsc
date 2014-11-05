@@ -1,7 +1,29 @@
+Toolbar advancedcropfield
+{	
+	Toolbar _parent = "Game\Toolbar.rsc:food";	
+	int _sortPriority = 150;	
+
+	Action _action = Tool;		
+	ComponentDescription _tool = "../Template/AdvancedCropField.rsc";			
+
+	bool _autoHotKey = true;
+}
+
+Toolbar advancedorchard
+{	
+	Toolbar _parent = "Game\Toolbar.rsc:food";	
+	int _sortPriority = 250;	
+
+	Action _action = Tool;		
+	ComponentDescription _tool = "../Template/AdvancedOrchard.rsc";			
+
+	bool _autoHotKey = true;
+}
+
 Toolbar advancedmine
 {	
 	Toolbar _parent = "Game\Toolbar.rsc:resources";	
-	int _sortPriority = 700;	
+	int _sortPriority = 750;	
 
 	Action _action = Tool;		
 	ComponentDescription _tool = "../Template/AdvancedMine.rsc";			
@@ -12,7 +34,7 @@ Toolbar advancedmine
 Toolbar advancedquarry
 {	
 	Toolbar _parent = "Game\Toolbar.rsc:resources";	
-	int _sortPriority = 900;	
+	int _sortPriority = 850;	
 
 	Action _action = Tool;		
 	ComponentDescription _tool = "../Template/AdvancedQuarry.rsc";			

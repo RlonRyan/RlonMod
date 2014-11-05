@@ -5,6 +5,8 @@ ExternalList resource
 	External _resources
 	[
 		// toolbar - references building and everything else - nothing else need be listed here
+		"Toolbar/Toolbars.rsc:advancedcropfield"
+		"Toolbar/Toolbars.rsc:advancedorchard"
 		"Toolbar/Toolbars.rsc:advancedmine"
 		"Toolbar/Toolbars.rsc:advancedquarry"
 		"Toolbar/Toolbars.rsc:storagewagon"

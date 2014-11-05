@@ -1,7 +1,15 @@
 StringTable resource
 {
 	Entry _strings
-	[ 
+	[
+		{ String _name = "AdvancedCropField";			String _text = "Advanced Field"; }
+		{ String _name = "AdvancedCropFieldLwr";		String _text = "advanced field"; }
+		{ String _name = "AdvancedCropFieldTip";		String _text = "An advanced field is used to farm where others may fail."; }
+
+		{ String _name = "AdvancedOrchard";			String _text = "Advanced Orchard"; }
+		{ String _name = "AdvancedOrchardLwr";			String _text = "advanced orchard"; }
+		{ String _name = "AdvancedOrchardTip";			String _text = "An advanced orchard is used by those who like a little denser forest."; }
+
 		{ String _name = "AdvancedQuarry";			String _text = "Advanced Quarry"; }
 		{ String _name = "AdvancedQuarryLwr";			String _text = "advanced quarry"; }
 		{ String _name = "AdvancedQuarryTip";			String _text = "An advanced quarry is used to generate stone at a better rate than a quarry."; }
