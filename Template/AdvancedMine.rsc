@@ -110,7 +110,7 @@ ParticleDescription particle
 
 ToolbarDescription toolbar
 {
-	SpriteSheet _spriteSheet = "Dialog\SpriteSheet.rsc";
+	SpriteSheet _spriteSheet = "Dialog/SpriteSheet.rsc";
 	String _spriteName = "BuildIronMine";
 
 	StringTable _stringTable = "Language/StringTable.rsc";
@@ -377,13 +377,18 @@ UIDescription ui
 		}
 		{ 
 			ObjectType _type = WorkPlaceUI; 
-			ElementDescription _element = "Dialog/SharedWork.rsc:workPlace"; 
+			ElementDescription _element = "Dialog/Work.rsc:workPlace"; 
 			String _insertAt = "userTitle1"; 
 		}
 		{
 			ObjectType _type = StatusIconUI;
 			ElementDescription _element = "Dialog/Building.rsc:icons";
 			String _insertAt = "userTitle2";
+		}
+		{
+			ObjectType _type = ConsumeProduceUI;
+			ElementDescription _element = "Dialog/ConsumeProduce.rsc"; 
+			String _insertAt = "userGroup0";
 		}
 		{ 
 			ObjectType _type = BuildUI; 
