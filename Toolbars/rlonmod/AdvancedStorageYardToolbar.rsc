@@ -1,7 +1,7 @@
 Toolbar advancedstorage
 {
 	// From base
-	StringTable _stringTable = "Language/StringTable.rsc:toolbar";
+	StringTable _stringTable = "Language/rlonmod/AdvancedStorageStringTable.rsc:toolbar";
 	SpriteSheet _spriteSheet = "Dialog/SpriteSheet.rsc";
 
 	Toolbar _parent = "Game\Toolbar.rsc:storage";
@@ -20,7 +20,7 @@ Toolbar wood
 	int _sortPriority = 100;	
 
 	Action _action = Tool;	
-	ComponentDescription _tool = "../Template/StorageYardWood.rsc";			
+	ComponentDescription _tool = "Template/rlonmod/AdvancedStorageYard/Wood.rsc";			
 
 	bool _autoHotKey = true;
 }
@@ -32,7 +32,7 @@ Toolbar stone
 	int _sortPriority = 200;	
 
 	Action _action = Tool;	
-	ComponentDescription _tool = "../Template/StorageYardStone.rsc";			
+	ComponentDescription _tool = "Template/rlonmod/AdvancedStorageYard/Stone.rsc";			
 
 	bool _autoHotKey = true;
 }
@@ -43,7 +43,7 @@ Toolbar iron
 	int _sortPriority = 300;	
 
 	Action _action = Tool;	
-	ComponentDescription _tool = "../Template/StorageYardIron.rsc";			
+	ComponentDescription _tool = "Template/rlonmod/AdvancedStorageYard/Iron.rsc";			
 
 	bool _autoHotKey = true;
 }
@@ -54,7 +54,7 @@ Toolbar fuel
 	int _sortPriority = 400;	
 
 	Action _action = Tool;	
-	ComponentDescription _tool = "../Template/StorageYardFuel.rsc";			
+	ComponentDescription _tool = "Template/rlonmod/AdvancedStorageYard/Fuel.rsc";			
 
 	bool _autoHotKey = true;
 }
@@ -65,7 +65,7 @@ Toolbar firewood
 	int _sortPriority = 500;	
 
 	Action _action = Tool;	
-	ComponentDescription _tool = "../Template/StorageYardFirewood.rsc";			
+	ComponentDescription _tool = "Template/rlonmod/AdvancedStorageYard/Firewood.rsc";			
 
 	bool _autoHotKey = true;
 }
@@ -76,7 +76,7 @@ Toolbar coal
 	int _sortPriority = 600;	
 
 	Action _action = Tool;	
-	ComponentDescription _tool = "../Template/StorageYardCoal.rsc";			
+	ComponentDescription _tool = "Template/rlonmod/AdvancedStorageYard/Coal.rsc";			
 
 	bool _autoHotKey = true;
 }

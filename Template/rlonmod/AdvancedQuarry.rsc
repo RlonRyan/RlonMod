@@ -15,16 +15,14 @@ ComponentDescription resource
 		"createplaced",
 		"decal",
 		"model",
-		"particle",
 		"picking",
 		"highlight",
-		"floor",	
 		"interact",
 		"storage",
 		"work",	
 		"radius",
+		"quarry",
 		"statusicon",
-		"mine",
 		"tracker",	
 		
 		"statemachine",
@@ -49,39 +47,16 @@ ComponentDescription destroyed
 		"map",
 		"zone",
 		"decal",
-		"modeldestroyed",
 		"radius",
 		"happiness",
 	]
 }
 
-HappinessDescription happiness
-{
-	HappinessType _happinessType = Detraction;
-}
-
-RadiusDescription radius
-{
-	int _radius = 30;
-	// MaterialInstance _decalMaterial = "Terrain/TiledDecals/SelectAreaMaterial.rsc";
-}
-
-
 TrackerDescription tracker { }
+
 ClearAreaDescription cleararea 
 { 
-	bool _flattenGround = false;
-}
-StateMachineDescription statemachine { }
-ZoneDescription zone { }
-DestroyDescription destroy 
-{ 
-	ComponentDescription _replaceEntity = "destroyed";
-}
-
-MineDescription mine
-{
-
+	bool _flattenGround = false; 
 }
 
 StatusIconDescription statusicon
@@ -92,31 +67,42 @@ StatusIconDescription statusicon
 	float _zoffset = 1.33;
 }
 
+StateMachineDescription statemachine { }
+ZoneDescription zone { }
 
-ParticleDescription particle
+HappinessDescription happiness
 {
-	PointList _pointList = "Models\Buildings\IronMine\IronMinePoints.rsc";
-
-	ParticleAttachment _systems 
-	[
-		{
-			bool _addOnCreate = false;
-			Particle _particle = "ParticleSystems\IronSmoke\IronSmoke.rsc";
-			String _attachNode = "particle0";
-		}
-	]
+	HappinessType _happinessType = Detraction;
+	int _idleRange = 0;
 }
 
+RadiusDescription radius
+{
+	int _radius = 30;
+	// MaterialInstance _decalMaterial = "Terrain/TiledDecals/SelectAreaMaterial.rsc";
+}
+
+DestroyDescription destroy 
+{ 
+	ComponentDescription _replaceEntity = "destroyed";
+}
+
+QuarryDescription quarry 
+{ 
+	PickingMesh _floorMesh = "Models\Buildings\Quarry\QuarryFloor.rsc";
+	float _maxDepth = -7.0;
+	float _initialDepth = -1.4;
+}
 
 ToolbarDescription toolbar
 {
 	SpriteSheet _spriteSheet = "Dialog/SpriteSheet.rsc";
-	String _spriteName = "BuildIronMine";
+	String _spriteName = "BuildQuarry";
 
-	StringTable _stringTable = "Language/StringTable.rsc";
-	String _stringName = "AdvancedMine";
-	String _stringNameLwr = "AdvancedMineLwr";
-	String _toolTip = "AdvancedMineTip";
+	StringTable _stringTable = "Language\rlonmod\StringTable.rsc";
+	String _stringName = "AdvancedQuarry";
+	String _stringNameLwr = "AdvancedQuarryLwr";
+	String _toolTip = "AdvancedQuarryTip";
 
 	String _statusStrings
 	[
@@ -131,30 +117,36 @@ CreatePlacedDescription createplaced
 {
 	PathBits _placeBits = Normal | Obstacle;
 
-	int _width = 12;
-	int _height = 12;
-	int _footprintRotation = 0;
+	int _width = 21;
+	int _height = 17;
+	int _footprintRotation = 180;
 
 	PathBits _placeBitArray
 	[
 		Normal | Obstacle,
-		Normal | Obstacle | Fast | Faster,
-		Normal | Obstacle | Unusable | Walkable,  
-		Unusable | Walkable,
+		Normal | Obstacle | Fast | Faster
 	]
 	String _placeBitmap =
-		"333333333333
-		 333333333333
-		 333333333333
-		 333333322222
-		 222222222222
-		 222222222222
-		 000000000000
-		 000000000000
-		 000000000000
-		 000000000000
-		 000000000000
-		 111111111111";
+		"111111111111111111111
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000
+		 000000000000000000000";
 
 	ComponentDescription _allowAndRemove = "Template/Clear.rsc";
 }
@@ -163,18 +155,27 @@ MapDescription map
 {
 	PathType _pathType = Immovable;
 	String _pathBitmap =
-		"############
-		 ############
-		 ####_#######
-		 ####_#######
-		 ####_#######
-		 ####_#######
-		 ####_#######
-		 __##_#######
-		 ___#_####___
-		 ___#_####___
-		 ___#_####___
-		 ............";
+		".....................
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________
+		 _____________________";
 
 	bool _addToOverhead = true;
 	Color _mapColor = 0xFF545454;
@@ -182,26 +183,21 @@ MapDescription map
 
 DecalDescription decal
 {
-	MaterialInstance _materials [ "Terrain/TiledDecals/BuildingFootprint1Material.rsc" ]
+	MaterialInstance _materials [ "Terrain/TiledDecals/BuildingFootprint7Material.rsc" ]
 	bool _tiled = false;
 	float _initialAlpha = 0.5;
 	
-	float _mapWidth = 2048.0;
+	float _mapWidth = 1024.0;
 
 	DecalLocation _decalLocations
 	[
 		{
-			float _x0 = 896.0;
+			float _x0 = 0.0;
 			float _y0 = 0.0;
-			float _x1 = 1664.0;
-			float _y1 = 768.0;	
+			float _x1 = 1024.0;
+			float _y1 = 1024.0;	
 		}
 	]
-}
-
-FloorDescription floor
-{
-	PickingMesh _mesh = "Models\Buildings\IronMine\IronMineFloor.rsc";
 }
 
 PickingDescription picking
@@ -212,9 +208,9 @@ PickingDescription picking
 		{ 
 			PickingMesh _mesh 
 			[ 
-				"Models\Buildings\IronMine\IronMineBuild01Picking.rsc",
-				"Models\Buildings\IronMine\IronMineBuild02Picking.rsc",
-				"Models\Buildings\IronMine\IronMinePicking.rsc"
+				"Models\Buildings\Quarry\QuarryBuild01Picking.rsc",
+				"Models\Buildings\Quarry\QuarryBuild02Picking.rsc",
+				"Models\Buildings\Quarry\QuarryPicking.rsc"
 			] 
 		}
 	]
@@ -228,9 +224,9 @@ ModelDescription model
 		{ 
 			GraphicsMesh _mesh 
 			[ 
-				"Models\Buildings\IronMine\IronMineBuild01Mesh.rsc",
-				"Models\Buildings\IronMine\IronMineBuild02Mesh.rsc",
-				"Models\Buildings\IronMine\IronMineMesh.rsc"
+				"Models\Buildings\Quarry\QuarryBuild01Mesh.rsc",
+				"Models\Buildings\Quarry\QuarryBuild02Mesh.rsc",
+				"Models\Buildings\Quarry\QuarryMesh.rsc"
 			] 
 		}
 	]
@@ -239,14 +235,14 @@ ModelDescription model
 	bool _randomIndex = false;
 }
 
-ModelDescription modeldestroyed
+ModelDescription modeldestroy
 {
 	MeshGroup _meshes
 	[
 		{ 
 			GraphicsMesh _mesh 
 			[ 
-				"Models\Buildings\IronMine\IronMineDestroyMesh.rsc",
+				"Models\Buildings\Quarry\QuarryDestroyMesh.rsc",
 			] 
 		}
 	]
@@ -262,9 +258,9 @@ HighlightDescription highlight
 		{ 
 			EdgeMesh _mesh 
 			[ 
-				"Models\Buildings\IronMine\IronMineBuild01Mesh.rsc:edge",
-				"Models\Buildings\IronMine\IronMineBuild02Mesh.rsc:edge",
-				"Models\Buildings\IronMine\IronMineMesh.rsc:edge"
+				"Models\Buildings\Quarry\QuarryBuild01Mesh.rsc:edge",
+				"Models\Buildings\Quarry\QuarryBuild02Mesh.rsc:edge",
+				"Models\Buildings\Quarry\QuarryMesh.rsc:edge"
 			]
 		}
 	]
@@ -276,7 +272,7 @@ HighlightDescription highlight
 
 InteractDescription interact
 {
-	PointList _pointList = "Models\Buildings\IronMine\IronMinePoints.rsc";
+	PointList _pointList = "Models\Buildings\Quarry\QuarryPoints.rsc";
 }
 
 StorageDescription storage
@@ -294,8 +290,8 @@ WorkDescription work
 
 WorkPlaceDescription workplace
 {
-	Profession _profession = "Game/Profession/Profession.rsc:miner";
-	Profession _pickupProfession = "Game/Profession/Profession.rsc:miner";
+	Profession _profession = "Profession/rlonmod/Profession.rsc:quarryman";
+	Profession _pickupProfession = "Profession/rlonmod/Profession.rsc:quarryman";
 }
 
 ConsumeProduceDescription consumeproduce
@@ -303,24 +299,14 @@ ConsumeProduceDescription consumeproduce
 	Product _products
 	[
 		{
-			ComponentDescription _produceMaterial = "Template/RawMaterialIron.rsc";
-			ResourceLimit _resourceLimit = Iron;
-			String _requirements = "IronRequire";
-		}
-		{
-			ComponentDescription _produceMaterial = "Template/RawMaterialCoal.rsc";
-			ResourceLimit _resourceLimit = Coal;
-			String _requirements = "CoalRequire";
+			ComponentDescription _produceMaterial = "Template/RawMaterialStone.rsc";
+			ResourceLimit _resourceLimit = Stone;
 		}
 	]
 
-	StringTable _stringTable = "Dialog/StringTable.rsc:rawMaterial";
-
-	float _workTime = 4.0;
 	ToolType _toolType = PickAxe;
-	int _workRequired = 60;
-
-	int _initialProduct = 0;	// -1 for all products
+	int _workRequired = 10;
+	float _workTime = 2.5;
 }
 
 BuildDescription build
@@ -331,11 +317,11 @@ BuildDescription build
 	[
 		{
 			ComponentDescription _rawMaterial = "Template/RawMaterialWood.rsc";
-			int _count = 48;
+			int _count = 80;
 		}
 		{
-			ComponentDescription _rawMaterial = "Template/RawMaterialStone.rsc";
-			int _count = 68;
+			ComponentDescription _rawMaterial = "Template/RawMaterialIron.rsc";
+			int _count = 40;
 		}	
 	]
 }
@@ -359,15 +345,9 @@ UIDescription ui
 			String _insertAt = "userButton1";
 			DialogControllerConfig _config = "resourceLimitConfig";	
 		}
-		{
-			ObjectType _type = ResourceLimitUI;
-			ElementDescription _element = "resourceLimit2"; 
-			String _insertAt = "userButton1";
-			DialogControllerConfig _config = "resourceLimitConfig2";	
-		}
 		{ 
 			ObjectType _type = ProductionUI; 
-			ElementDescription _element = "Dialog/Production.rsc:production4"; 
+			ElementDescription _element = "Dialog/Production.rsc:production"; 
 			String _insertAt = "pageUser"; 
 		}
 		{ 
@@ -385,11 +365,6 @@ UIDescription ui
 			ElementDescription _element = "Dialog/Building.rsc:icons";
 			String _insertAt = "userTitle2";
 		}
-		{
-			ObjectType _type = ConsumeProduceUI;
-			ElementDescription _element = "Dialog/ConsumeProduce.rsc"; 
-			String _insertAt = "userGroup0";
-		}
 		{ 
 			ObjectType _type = BuildUI; 
 			ElementDescription _element = "Dialog/Build.rsc:build"; 
@@ -400,6 +375,7 @@ UIDescription ui
 			ElementDescription _element = "Dialog/Destroy.rsc:destroy"; 
 			String _insertAt = "pageDestroy"; 
 		}
+
 	]
 }
 
@@ -427,12 +403,7 @@ LabelDescription labelMinerWorkUncheck : "labelMinerWorkCheck"
 
 ResourceLimitUIConfig resourceLimitConfig
 {
-	ResourceLimit _resourceLimit = Iron;
-}
-
-ResourceLimitUIConfig resourceLimitConfig2
-{
-	ResourceLimit _resourceLimit = Coal;
+	ResourceLimit _resourceLimit = Stone;
 }
 
 RibbonDescription resourceLimit
@@ -451,26 +422,7 @@ RibbonDescription resourceLimit
 
 	Dialog _toolTipDialog = "Dialog/ToolTip.rsc";
 	StringTable _toolTipStringTable = "Dialog/StringTable.rsc:gameDialogs";
-	String _toolTipText = "IronLimitTip";
-}
-
-RibbonDescription resourceLimit2
-{
-	Alignment _alignment = TopLeft;
-	bool vertical = false;
-	int _topPad = 44;
-	int _cellPad = 8;
-	int _minWidth = 222;
-
-	ElementDescription _elements
-	[
-		"labelLimit2",
-		"editLimit",
-	]
-
-	Dialog _toolTipDialog = "Dialog/ToolTip.rsc";
-	StringTable _toolTipStringTable = "Dialog/StringTable.rsc:gameDialogs";
-	String _toolTipText = "CoalLimitTip";
+	String _toolTipText = "StoneLimitTip";
 }
 
 LabelDescription labelLimit
@@ -485,26 +437,9 @@ LabelDescription labelLimit
 	Alignment _textAlignment = MidLeft;
 
 	StringTable _stringTable = "Dialog/StringTable.rsc:gameDialogs";
-	String _text = "IronLimit";
+	String _text = "StoneLimit";
 	SpriteSheet _spriteSheet = "Dialog/SpriteSheet.rsc";
-	String _spriteName = "Iron";
-}
-
-LabelDescription labelLimit2
-{
-	Alignment _alignment = MidLeft;
-
-	Font _font = "Font\FontSmall.rsc";
-	int _imageWidth = 20;
-	int _imageHeight = 20;
-	int _spacing = 4;
-	LabelPosition _labelPosition = TextRight;
-	Alignment _textAlignment = MidLeft;
-
-	StringTable _stringTable = "Dialog/StringTable.rsc:gameDialogs";
-	String _text = "CoalLimit";
-	SpriteSheet _spriteSheet = "Dialog/SpriteSheet.rsc";
-	String _spriteName = "Coal";
+	String _spriteName = "Stone";
 }
 
 SpinnerDescription editLimit : "Dialog/SharedElements.rsc:spinnerSmall6"
@@ -512,4 +447,3 @@ SpinnerDescription editLimit : "Dialog/SharedElements.rsc:spinnerSmall6"
 	int _increment = 100;
 	ElementDescription _border = "Dialog/SharedElements.rsc:flatButtonEnabledBorder";
 }
-

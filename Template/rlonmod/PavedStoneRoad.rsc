@@ -17,17 +17,17 @@ ComponentDescription resource
 
 MapDescription map
 {
-	PathType _pathType = Fast;
+	PathType _pathType = Faster;
 }
 
 ToolbarDescription toolbar
 {
 	SpriteSheet _spriteSheet = "Dialog/SpriteSheet.rsc";
-	String _spriteName = "BuildRoad";
-	StringTable _stringTable = "Language/StringTable.rsc";
-	String _stringName = "PackedDirtRoad";
-	String _stringNameLwr = "PackedDirtRoadLwr";
-	String _toolTip = "PackedDirtRoadTip";
+	String _spriteName = "BuildStoneRoad";
+	StringTable _stringTable = "Language\rlonmod\StringTable.rsc";
+	String _stringName = "StoneRoad";
+	String _stringNameLwr = "StoneRoadLwr";
+	String _toolTip = "StoneRoadTip";
 
 	String _statusStrings [	"CreateOk", "CreateTooSmall", "CreateTooBig", "CreateBlocked" ]
 	int _group = 1;
@@ -35,27 +35,27 @@ ToolbarDescription toolbar
 
 CreateRoadDescription createroad
 {
-	uchar _index = 1;
-	// ComponentDescription _rawMaterial = 0;
+	uchar _index = 0;
+	ComponentDescription _rawMaterial = "Template/RawMaterialStone.rsc";
 }
 
 DecalDescription decal
 {
-	MaterialInstance _materials [ "Terrain/TiledDecals/DirtRoadMaterial.rsc" ]
+	MaterialInstance _materials [ "Terrain/TiledDecals/StoneRoadMaterial.rsc" ]
 	bool _tiled = true;
-	float _initialAlpha = 0.5;
+	float _initialAlpha = 0.25;
 }
 
 BuildDescription build
 {
-	int _workRequired = 2;
+	int _workRequired = 4;
 	bool _scaledWithSize = true;
 
-	//BuildRequirement _buildRequirement
-	//[
-	//	{
-	//		//ComponentDescription _rawMaterial = "Template/RawMaterialStone.rsc";
-	//		//int _count = 4;
-	//	}	
-	//]
+	BuildRequirement _buildRequirement
+	[
+		{
+			ComponentDescription _rawMaterial = "Template/RawMaterialStone.rsc";
+			int _count = 4;
+		}	
+	]
 }

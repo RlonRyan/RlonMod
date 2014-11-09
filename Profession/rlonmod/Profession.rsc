@@ -1,6 +1,6 @@
 Profession quarryman
 {
-	StringTable _stringTable = "Language\StringTable.rsc:profession";
+	StringTable _stringTable = "Language\rlonmod\StringTable.rsc:profession";
 	SpriteSheet _spriteSheet = "Dialog\SpriteSheet.rsc";
 
 	String _text = "ProfessionQuarryman";

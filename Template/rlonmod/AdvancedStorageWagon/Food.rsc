@@ -23,7 +23,7 @@ ComponentDescription resource
 		"work",
 		"statusicon",
 		"ambientemitter",
-		"Common.rsc:fireWoodBuilding",
+		"Template/Common.rsc:fireWoodBuilding",
 		"particle",	
 
 		"statemachine",
@@ -72,12 +72,12 @@ StatusIconDescription statusicon
 ToolbarDescription toolbar
 {
 	SpriteSheet _spriteSheet = "Dialog/SpriteSheet.rsc";
-	String _spriteName = "ToolbarTransport";
+	String _spriteName = "Beef";
 
-	StringTable _stringTable = "Language/StringTable.rsc";
-	String _stringName = "StorageWagon";
-	String _stringNameLwr = "StorageWagonLwr";
-	String _toolTip = "StorageWagon";
+	StringTable _stringTable = "Language/rlonmod/AdvancedStorageStringTable.rsc:wagon";
+	String _stringName = "Food";
+	String _stringNameLwr = "FoodLwr";
+	String _toolTip = "FoodTip";
 
 	String _statusStrings
 	[
@@ -179,7 +179,7 @@ InteractDescription interact
 
 StorageDescription storage
 {
-	RawMaterialFlags _storageFlags = Edible | Fuel | Tool | Health | Clothing | Textile;	
+	RawMaterialFlags _storageFlags = Edible;	
 	bool _areaBasedLimit = false;
 	bool _available = true;
 	int _volumeLimit = 1000;

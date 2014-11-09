@@ -5,23 +5,29 @@ ExternalList resource
 	External _resources
 	[
 		// toolbar - references building and everything else - nothing else need be listed here
-		"Toolbars/Toolbar.rsc:advancedcropfield"
-		"Toolbars/Toolbar.rsc:advancedorchard"
-		"Toolbars/Toolbar.rsc:advancedmine"
-		"Toolbars/Toolbar.rsc:advancedquarry"
-		"Toolbars/Toolbar.rsc:storagewagon"
+		"Toolbars/rlonmod/Toolbar.rsc:advancedcropfield"
+		"Toolbars/rlonmod/Toolbar.rsc:advancedorchard"
+		"Toolbars/rlonmod/Toolbar.rsc:advancedmine"
+		"Toolbars/rlonmod/Toolbar.rsc:advancedquarry"
+		"Toolbars/rlonmod/Toolbar.rsc:storagewagon"
 		
-		"Toolbars/AdvancedStorageToolbar.rsc:advancedstorage"
-		"Toolbars/AdvancedStorageToolbar.rsc:wood"
-		"Toolbars/AdvancedStorageToolbar.rsc:iron"
-		"Toolbars/AdvancedStorageToolbar.rsc:stone"
-		"Toolbars/AdvancedStorageToolbar.rsc:fuel"
-		// To be readded
-		//"Toolbars/AdvancedStorageToolbar.rsc:firewood"
-		//"Toolbars/AdvancedStorageToolbar.rsc:coal"
+		"Toolbars/rlonmod/AdvancedStorageYardToolbar.rsc:advancedstorage"
+		"Toolbars/rlonmod/AdvancedStorageYardToolbar.rsc:wood"
+		"Toolbars/rlonmod/AdvancedStorageYardToolbar.rsc:iron"
+		"Toolbars/rlonmod/AdvancedStorageYardToolbar.rsc:stone"
+		"Toolbars/rlonmod/AdvancedStorageYardToolbar.rsc:fuel"
+		"Toolbars/rlonmod/AdvancedStorageYardToolbar.rsc:firewood"
+		"Toolbars/rlonmod/AdvancedStorageYardToolbar.rsc:coal"
+		
+		"Toolbars/rlonmod/AdvancedStorageWagonToolbar.rsc:advancedstoragewagon"
+		"Toolbars/rlonmod/AdvancedStorageWagonToolbar.rsc:food"
+		"Toolbars/rlonmod/AdvancedStorageWagonToolbar.rsc:herb"
+		"Toolbars/rlonmod/AdvancedStorageWagonToolbar.rsc:tool"
+		"Toolbars/rlonmod/AdvancedStorageWagonToolbar.rsc:clothing"
+		"Toolbars/rlonmod/AdvancedStorageWagonToolbar.rsc:textile"
 		
 		// To be readded when the modkit allows for custom roadspeeds.
-		//"Toolbar/Toolbars.rsc:packeddirtroad"
-		//"Toolbar/Toolbars.rsc:pavedstoneroad"		
+		//"Toolbars/rlonmod/Toolbar.rsc:packeddirtroad"
+		//"Toolbars/rlonmod/Toolbar.rsc:pavedstoneroad"		
 	]
 }

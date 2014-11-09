@@ -54,12 +54,12 @@ MapDescription map
 ToolbarDescription toolbar
 {
 	SpriteSheet _spriteSheet = "Dialog/SpriteSheet.rsc";
-	String _spriteName = "Stone";
+	String _spriteName = "Iron";
 
-	StringTable _stringTable = "Language/StringTable.rsc:advancedstorage";
-	String _stringName = "Stone";
-	String _stringNameLwr = "StoneLwr";
-	String _toolTip = "StoneTip";
+	StringTable _stringTable = "Language/rlonmod/AdvancedStorageStringTable.rsc:yard";
+	String _stringName = "Iron";
+	String _stringNameLwr = "IronLwr";
+	String _toolTip = "IronTip";
 
 	String _statusStrings
 	[
@@ -102,7 +102,7 @@ HighlightDescription highlight
 
 StorageDescription storage
 {
-	RawMaterialFlags _storageFlags = Stone;
+	RawMaterialFlags _storageFlags = Iron;
 	bool _areaBasedLimit = true;
 	bool _available = true;
 	int _volumeLimit = 250;

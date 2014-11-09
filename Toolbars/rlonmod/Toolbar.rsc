@@ -4,7 +4,7 @@ Toolbar advancedcropfield
 	int _sortPriority = 150;	
 
 	Action _action = Tool;		
-	ComponentDescription _tool = "../Template/AdvancedCropField.rsc";			
+	ComponentDescription _tool = "Template/rlonmod/AdvancedCropField.rsc";			
 
 	bool _autoHotKey = true;
 }
@@ -15,7 +15,7 @@ Toolbar advancedorchard
 	int _sortPriority = 250;	
 
 	Action _action = Tool;		
-	ComponentDescription _tool = "../Template/AdvancedOrchard.rsc";			
+	ComponentDescription _tool = "Template/rlonmod/AdvancedOrchard.rsc";			
 
 	bool _autoHotKey = true;
 }
@@ -26,7 +26,7 @@ Toolbar advancedmine
 	int _sortPriority = 750;	
 
 	Action _action = Tool;		
-	ComponentDescription _tool = "../Template/AdvancedMine.rsc";			
+	ComponentDescription _tool = "Template/rlonmod/AdvancedMine.rsc";			
 
 	bool _autoHotKey = true;
 }
@@ -37,7 +37,7 @@ Toolbar advancedquarry
 	int _sortPriority = 850;	
 
 	Action _action = Tool;		
-	ComponentDescription _tool = "../Template/AdvancedQuarry.rsc";			
+	ComponentDescription _tool = "Template/rlonmod/AdvancedQuarry.rsc";			
 
 	bool _autoHotKey = true;
 }
@@ -45,10 +45,10 @@ Toolbar advancedquarry
 Toolbar storagewagon
 {	
 	Toolbar _parent = "Game\Toolbar.rsc:storage";	
-	int _sortPriority = 50;	
+	int _sortPriority = 0;	
 
 	Action _action = Tool;		
-	ComponentDescription _tool = "../Template/StorageWagon.rsc";			
+	ComponentDescription _tool = "Template/rlonmod/StorageWagon.rsc";			
 
 	bool _autoHotKey = true;
 }
@@ -59,7 +59,7 @@ Toolbar packeddirtroad
 	int _sortPriority = 150;	
 
 	Action _action = Tool;		
-	ComponentDescription _tool = "../Template/PackedDirtRoad.rsc";			
+	ComponentDescription _tool = "Template/rlonmod/PackedDirtRoad.rsc";			
 
 	bool _autoHotKey = true;
 }
@@ -70,7 +70,7 @@ Toolbar pavedstoneroad
 	int _sortPriority = 250;	
 
 	Action _action = Tool;		
-	ComponentDescription _tool = "../Template/PavedStoneRoad.rsc";			
+	ComponentDescription _tool = "Template/rlonmod/PavedStoneRoad.rsc";			
 
 	bool _autoHotKey = true;
 }

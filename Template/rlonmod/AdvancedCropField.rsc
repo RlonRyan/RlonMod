@@ -15,8 +15,8 @@ ComponentDescription resource
 		"createdrag",
 		"decal",
 		"work",
-		"particle",
 		"disease",
+		"particle",
 		"highlight",
 		"statusicon",
 		"tracker",	
@@ -26,7 +26,7 @@ ComponentDescription resource
 		"cleararea",
 		"destroy",
 		"workplace",		
-		"orchard",
+		"cropfield",
 	]
 }
 
@@ -37,11 +37,6 @@ AutoPickupDescription autopickup
 }
 
 TrackerDescription tracker { }
-ClearAreaDescription cleararea 
-{ 
-	bool _flattenGround = false;
-	int _workerCount = 8;
-}
 StateMachineDescription statemachine { }
 ZoneDescription zone { }
 DestroyDescription destroy { }
@@ -52,6 +47,13 @@ StatusIconDescription statusicon
 	bool _fixedSize = true;
 	float _size = 0.04;
 	float _zoffset = 1.33;
+}
+
+ClearAreaDescription cleararea 
+{
+	bool _usedPreviousWorkId = true;
+	bool _flattenGround = false;
+	int _workerCount = 8;
 }
 
 MapDescription map
@@ -65,12 +67,11 @@ MapDescription map
 ToolbarDescription toolbar
 {
 	SpriteSheet _spriteSheet = "Dialog/SpriteSheet.rsc";
-	String _spriteName = "BuildOrchard";
-
-	StringTable _stringTable = "Language/StringTable.rsc";
-	String _stringName = "Orchard";
-	String _stringNameLwr = "OrchardLwr";
-	String _toolTip = "OrchardTip";
+	String _spriteName = "BuildField";
+	StringTable _stringTable = "Language\rlonmod\StringTable.rsc";
+	String _stringName = "AdvancedCropField";
+	String _stringNameLwr = "AdvancedCropFieldLwr";
+	String _toolTip = "AdvancedCropFieldTip";
 
 	String _statusStrings
 	[
@@ -87,7 +88,7 @@ CreateDragDescription createdrag
 {
 	bool _ignoreZones = false;
 	
-	PathBits _placeBits = Normal | Obstacle; //| Walkable;
+	PathBits _placeBits = Normal | Obstacle | Walkable;
 	
 	int _maxWidth = 25;
 	int _maxHeight = 25;
@@ -99,20 +100,21 @@ CreateDragDescription createdrag
 
 WorkDescription work
 {
-	int _defaultWorkers = 2;
+	int _defaultWorkers = 4;
 
 	bool _allowCountChange = true;
 	int _minWorkerCount = 1;
-	int _maxWorkerCount = 8;
+	int _maxWorkerCount = 10;
 
 	int _minArea = 4;
 	int _maxArea = 225;
 	bool _scaleWorkersWithSize = true;
 }
 
+
 DecalDescription decal
 {
-	MaterialInstance _materials [ "Terrain/TiledDecals/OrchardMaterial.rsc" ]
+	MaterialInstance _materials [ "Terrain/TiledDecals/CropFieldMaterial.rsc" ]
 	bool _tiled = true;
 	float _initialAlpha = 0.5;
 }
@@ -130,22 +132,20 @@ WorkPlaceDescription workplace
 	Profession _pickupProfession = "Game/Profession/Profession.rsc:farmer";
 }
 
-OrchardDescription orchard
+CropFieldDescription cropfield
 {
-	int _widthSpacing = 2;
-	int _heightSpacing = 2;
 	float _growthPercentOnTend = 0.005;
 }
 
 DiseaseDescription disease
 {
-	int _startMonth = 0;
-	int _endMonth = 12;
+	int _startMonth = 3;
+	int _endMonth = 7;
 	float _spawnIntervalInMonths = 0.25;
 	float _lowSpawnChance = 200;
 	float _highSpawnChance = 150;
 
-	float _killIntervalInMonths = 0.25;
+	float _killIntervalInMonths = 0.03;
 	float _spreadIntervalInMonths = 0.125;
 	int _spreadRadius = 20;
 
@@ -159,7 +159,6 @@ ParticleDescription particle
 		{
 			bool _addOnCreate = false;
 			bool _addOnNotify = false;
-
 			Particle _particle = "ParticleSystems\CropDisease\CropDisease.rsc";
 		}
 	]
@@ -175,6 +174,13 @@ UIDescription ui
 			ElementDescription _element = "selectResource"; 
 			String _insertAt = "userButton0";
 		}
+		/*
+		{
+			ObjectType _type = ControlUI;
+			ElementDescription _element = "Dialog/AutoPickup.rsc:enableAutoPickupButton"; 
+			String _insertAt = "userButton1";
+			DialogControllerConfig _config = "Dialog/AutoPickup.rsc:autoPickupButtonConfig";	
+		}*/
 		{
 			ObjectType _type = ControlUI;
 			ElementDescription _element = "harvestButton"; 
@@ -188,29 +194,24 @@ UIDescription ui
 			DialogControllerConfig _config = "autoConfig";	
 		}
 		{
-			ObjectType _type = ControlUI;
-			ElementDescription _element = "cutButton"; 
+			ElementDescription _element = "padding"; 
 			String _insertAt = "userButton3";
-			DialogControllerConfig _config = "cutConfig";	
 		}
 		/*
 		{
-			ObjectType _type = ControlUI;
-			ElementDescription _element = "Dialog/AutoPickup.rsc:enableAutoPickupButton"; 
-			String _insertAt = "userButton1";
-			DialogControllerConfig _config = "Dialog/AutoPickup.rsc:autoPickupButtonConfig";	
-		}
-		*/
+			ElementDescription _element = "Dialog/Crop.rsc:cropQuality"; 
+			String _insertAt = "userGroup1";
+		}*/
 		{ 
-			ObjectType _type = OrchardUI; 
-			ElementDescription _element = "Dialog/Orchard.rsc:orchard"; 
+			ObjectType _type = CropUI; 
+			ElementDescription _element = "Dialog/Crop.rsc:crop"; 
 			String _insertAt = "userGroup0"; 
 		}
 		{
 			ObjectType _type = ResourceLimitUI;
-			ElementDescription _element = "CropField.rsc:resourceLimit"; 
+			ElementDescription _element = "resourceLimit"; 
 			String _insertAt = "userGroup1";
-			DialogControllerConfig _config = "CropField.rsc:resourceLimitConfig";	
+			DialogControllerConfig _config = "resourceLimitConfig";	
 		}
 		{ 
 			ObjectType _type = ProductionUI; 
@@ -236,7 +237,7 @@ UIDescription ui
 			ObjectType _type = StatusIconUI;
 			ElementDescription _element = "Dialog/Building.rsc:icons";
 			String _insertAt = "userTitle2";
-			DialogControllerConfig _config = "CropField.rsc:titleBuildStatus";	
+			DialogControllerConfig _config = "AdvancedCropField.rsc:titleBuildStatus";	
 		}
 		{ 
 			ObjectType _type = BuildUI; 
@@ -252,48 +253,51 @@ UIDescription ui
 	]
 }
 
+StatusIconUIConfig titleBuildStatus
+{
+	bool _showOnMainPage = false;
+}
+
+GroupDescription padding
+{
+	int _minWidth = 64;
+}
+
+ControlUIConfig plantConfig
+{
+	ObjectType _type = CropFieldComponent;
+	int _controlId = 0;
+}
+
 ControlUIConfig harvestConfig
 {
-	ObjectType _type = OrchardComponent;
+	ObjectType _type = CropFieldComponent;
 	int _controlId = 1;
 }
 
 ControlUIConfig autoConfig
 {
-	ObjectType _type = OrchardComponent;
+	ObjectType _type = CropFieldComponent;
 	int _controlId = 2;
-}
-
-ControlUIConfig cutConfig
-{
-	ObjectType _type = OrchardComponent;
-	int _controlId = 3;
 }
 
 ButtonDescription harvestButton : "Dialog/SharedWork.rsc:enableWorkButton"
 {
 	ElementDescription _content = "labelHarvest";	
-	String _toolTipText = "OrchardHarvestTip";
+	String _toolTipText = "CropFieldCutTip";
 }
 
 CheckDescription autoButton : "Dialog/SharedWork.rsc:enableWorkCheck"
 {
 	ElementDescription _content = "labelAutoUncheck";	
 	ElementDescription _check = "labelAuto";	
-	String _toolTipText = "OrchardAutoTip";
+	String _toolTipText = "CropFieldAutoTip";
 }
-
-ButtonDescription cutButton : "Dialog/SharedWork.rsc:enableWorkButton"
-{
-	ElementDescription _content = "labelCut";	
-	String _toolTipText = "OrchardCutTip";
-}
-
 
 LabelDescription labelHarvest : "Dialog/SharedWork.rsc:labelEnableWork" { String _spriteName = "CropFieldHarvest"; String _text = "CropFieldHarvest";  }
+
 LabelDescription labelAuto : "Dialog/SharedWork.rsc:labelEnableWork" { String _spriteName = "CropFieldAuto"; String _text = "CropFieldAuto";  }
 LabelDescription labelAutoUncheck : "labelAuto" { Color _color = 0xFF2E2B28;  }
-LabelDescription labelCut : "Dialog/SharedWork.rsc:labelEnableWork" { String _spriteName = "ForesterCut"; String _text = "OrchardCut";  }
 
 ComboDescription selectResource : "Dialog/SharedElements.rsc:borderButton"
 {
@@ -304,7 +308,7 @@ ComboDescription selectResource : "Dialog/SharedElements.rsc:borderButton"
 
 	Dialog _toolTipDialog = "Dialog/ToolTip.rsc";
 	StringTable _toolTipStringTable = "Dialog/StringTable.rsc:gameDialogs";
-	String _toolTipText = "OrchardSelectTip";
+	String _toolTipText = "CropFieldSelectTip";
 }
 
 LabelDescription cropComboLabel : "Dialog/SharedWork.rsc:labelEnableWork"
@@ -334,4 +338,50 @@ LabelDescription cropListText
 	int _textWidth = 0;
 	LabelPosition _labelPosition = TextRight;
 	Alignment _textAlignment = MidLeft;
+}
+
+ResourceLimitUIConfig resourceLimitConfig
+{
+	ResourceLimit _resourceLimit = Food;
+}
+
+RibbonDescription resourceLimit
+{
+	Alignment _alignment = TopLeft;
+	bool vertical = false;
+	int _topPad = 4;
+	int _cellPad = 8;
+
+	ElementDescription _elements
+	[
+		"labelLimit",
+		"editLimit",
+	]
+
+	Dialog _toolTipDialog = "Dialog/ToolTip.rsc";
+	StringTable _toolTipStringTable = "Dialog/StringTable.rsc:gameDialogs";
+	String _toolTipText = "FoodLimitTip";
+}
+
+LabelDescription labelLimit
+{
+	Alignment _alignment = MidLeft;
+
+	Font _font = "Font\FontSmall.rsc";
+	int _imageWidth = 20;
+	int _imageHeight = 20;
+	int _spacing = 4;
+	LabelPosition _labelPosition = TextRight;
+	Alignment _textAlignment = MidLeft;
+
+	StringTable _stringTable = "Dialog/StringTable.rsc:gameDialogs";
+	String _text = "FoodLimit";
+	SpriteSheet _spriteSheet = "Dialog/SpriteSheet.rsc";
+	String _spriteName = "Potato";
+}
+
+SpinnerDescription editLimit : "Dialog/SharedElements.rsc:spinnerSmall6"
+{
+	int _increment = 100;
+	ElementDescription _border = "Dialog/SharedElements.rsc:flatButtonEnabledBorder";
 }
