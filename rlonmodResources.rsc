@@ -9,6 +9,9 @@ ExternalList resource
 		"Toolbars/rlonmod/Toolbar.rsc:advancedorchard"
 		"Toolbars/rlonmod/Toolbar.rsc:advancedmine"
 		"Toolbars/rlonmod/Toolbar.rsc:advancedquarry"
+		"Toolbars/rlonmod/Toolbar.rsc:advancedwoodhouse"
+		"Toolbars/rlonmod/Toolbar.rsc:advancedstonehouse"
+		"Toolbars/rlonmod/Toolbar.rsc:advancedhostel"
 		"Toolbars/rlonmod/Toolbar.rsc:storagewagon"
 		
 		"Toolbars/rlonmod/AdvancedStorageYardToolbar.rsc:advancedstorage"

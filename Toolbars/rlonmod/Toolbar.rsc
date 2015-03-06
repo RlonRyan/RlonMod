@@ -42,6 +42,39 @@ Toolbar advancedquarry
 	bool _autoHotKey = true;
 }
 
+Toolbar advancedwoodhouse
+{	
+	Toolbar _parent = "Game\Toolbar.rsc:housing";	
+	int _sortPriority = 150;	
+
+	Action _action = Tool;		
+	ComponentDescription _tool = "Template/rlonmod/AdvancedWoodHouse.rsc";			
+
+	bool _autoHotKey = true;
+}
+
+Toolbar advancedstonehouse
+{	
+	Toolbar _parent = "Game\Toolbar.rsc:housing";	
+	int _sortPriority = 250;	
+
+	Action _action = Tool;		
+	ComponentDescription _tool = "Template/rlonmod/AdvancedStoneHouse.rsc";			
+
+	bool _autoHotKey = true;
+}
+
+Toolbar advancedhostel
+{	
+	Toolbar _parent = "Game\Toolbar.rsc:housing";	
+	int _sortPriority = 350;	
+
+	Action _action = Tool;		
+	ComponentDescription _tool = "Template/rlonmod/AdvancedHostel.rsc";			
+
+	bool _autoHotKey = true;
+}
+
 Toolbar storagewagon
 {	
 	Toolbar _parent = "Game\Toolbar.rsc:storage";	
