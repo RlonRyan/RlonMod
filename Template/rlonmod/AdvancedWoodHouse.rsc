@@ -370,7 +370,7 @@ ParticleDescription particle
 
 StorageDescription storage
 {
-	RawMaterialFlags _storageFlags = Edible | Firewood;
+	RawMaterialFlags _storageFlags = Edible | WoodFuel;
 	bool _areaBasedLimit = false;
 	bool _available = false;
 	int _volumeLimit = 1000;
