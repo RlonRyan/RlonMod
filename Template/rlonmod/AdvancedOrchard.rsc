@@ -68,9 +68,9 @@ ToolbarDescription toolbar
 	String _spriteName = "BuildOrchard";
 
 	StringTable _stringTable = "Language\rlonmod\StringTable.rsc";
-	String _stringName = "Orchard";
-	String _stringNameLwr = "OrchardLwr";
-	String _toolTip = "OrchardTip";
+	String _stringName = "AdvancedOrchard";
+	String _stringNameLwr = "AdvancedOrchardLwr";
+	String _toolTip = "AdvancedOrchardTip";
 
 	String _statusStrings
 	[

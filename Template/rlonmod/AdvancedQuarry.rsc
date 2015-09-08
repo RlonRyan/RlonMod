@@ -291,7 +291,7 @@ WorkDescription work
 WorkPlaceDescription workplace
 {
 	Profession _profession = "Profession/rlonmod/Profession.rsc:quarryman";
-	Profession _pickupProfession = "Profession/rlonmod/Profession.rsc:quarryman";
+	Profession _pickupProfession = "Game/Profession/Profession.rsc:laborer";
 }
 
 ConsumeProduceDescription consumeproduce

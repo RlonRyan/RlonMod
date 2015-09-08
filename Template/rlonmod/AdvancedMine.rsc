@@ -295,7 +295,7 @@ WorkDescription work
 WorkPlaceDescription workplace
 {
 	Profession _profession = "Game/Profession/Profession.rsc:miner";
-	Profession _pickupProfession = "Game/Profession/Profession.rsc:miner";
+	Profession _pickupProfession = "Game/Profession/Profession.rsc:laborer";
 }
 
 ConsumeProduceDescription consumeproduce
